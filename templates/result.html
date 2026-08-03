@@ -1,0 +1,277 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+Analysis Result
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>
+
+        Developer Work Pattern Report
+
+    </h1>
+
+    <br>
+
+    <!-- ========================================= -->
+    <!-- Developer Information -->
+    <!-- ========================================= -->
+
+    <div class="card">
+
+        <h2>
+
+            Developer Profile
+
+        </h2>
+
+        <table class="result-table">
+
+            <tr>
+
+                <td><strong>Name</strong></td>
+
+                <td>{{ summary.name }}</td>
+
+            </tr>
+
+            <tr>
+
+                <td><strong>GitHub Username</strong></td>
+
+                <td>{{ summary.developer }}</td>
+
+            </tr>
+
+            <tr>
+
+                <td><strong>Followers</strong></td>
+
+                <td>{{ summary.followers }}</td>
+
+            </tr>
+
+            <tr>
+
+                <td><strong>Repositories</strong></td>
+
+                <td>{{ summary.repositories }}</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <!-- ========================================= -->
+    <!-- Analysis Summary -->
+    <!-- ========================================= -->
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <h3>
+
+                Total Commits
+
+            </h3>
+
+            <h2>
+
+                {{ summary.total_commits }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>
+
+                Normal Commits
+
+            </h3>
+
+            <h2>
+
+                {{ summary.normal_commits }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>
+
+                Anomalies
+
+            </h3>
+
+            <h2>
+
+                {{ summary.anomalies }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>
+
+                Weekend Activity
+
+            </h3>
+
+            <h2>
+
+                {{ summary.weekend_activity }}%
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>
+
+                Night Activity
+
+            </h3>
+
+            <h2>
+
+                {{ summary.night_activity }}%
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>
+
+                Avg Sentiment
+
+            </h3>
+
+            <h2>
+
+                {{ summary.average_sentiment }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- ========================================= -->
+    <!-- Overall Status -->
+    <!-- ========================================= -->
+
+    <div class="status-box">
+
+        <h2>
+
+            Overall Work Pattern
+
+        </h2>
+
+        <h1>
+
+            {{ summary.overall_status }}
+
+        </h1>
+
+    </div>
+
+    <br>
+
+    <!-- ========================================= -->
+    <!-- Anomaly Table -->
+    <!-- ========================================= -->
+
+    <div class="card">
+
+        <h2>
+
+            Detected Anomalies
+
+        </h2>
+
+        {% if anomalies %}
+
+        <table class="result-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Repository</th>
+
+                    <th>Hour</th>
+
+                    <th>Message</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for row in anomalies %}
+
+                <tr>
+
+                    <td>{{ row.repository }}</td>
+
+                    <td>{{ row.commit_hour }}</td>
+
+                    <td>{{ row.message }}</td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p>
+
+            No anomalies detected.
+
+        </p>
+
+        {% endif %}
+
+    </div>
+
+    <br>
+
+    <a href="{{ url_for('home') }}">
+
+        <button class="analyze-btn">
+
+            Analyze Another Developer
+
+        </button>
+
+    </a>
+
+</div>
+
+{% endblock %}

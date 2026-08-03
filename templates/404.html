@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+Page Not Found
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>
+
+        404
+
+    </h1>
+
+    <br>
+
+    <h2>
+
+        Page Not Found
+
+    </h2>
+
+    <br>
+
+    <p class="subtitle">
+
+        The page you are looking for does not exist.
+
+    </p>
+
+    <br>
+
+    <a href="{{ url_for('home') }}">
+
+        <button class="analyze-btn">
+
+            Back to Home
+
+        </button>
+
+    </a>
+
+</div>
+
+{% endblock %}

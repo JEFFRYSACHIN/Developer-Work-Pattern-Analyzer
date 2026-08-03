@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+Home
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>
+
+        Developer Work Pattern Analyzer
+
+    </h1>
+
+    <p class="subtitle">
+
+        Analyze a GitHub developer's work pattern using
+        Machine Learning and Isolation Forest.
+
+    </p>
+
+    <form
+        action="{{ url_for('analyze') }}"
+        method="POST"
+    >
+
+        <div class="input-group">
+
+            <label>
+
+                GitHub Username
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="username"
+
+                placeholder="Example : JEFFRYSACHIN"
+
+                required
+
+            >
+
+        </div>
+
+        <button
+            type="submit"
+            class="analyze-btn"
+        >
+
+            Analyze Developer
+
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- ========================================= -->
+<!-- Features -->
+<!-- ========================================= -->
+
+<div class="features">
+
+    <div class="card">
+
+        <h2>
+
+            GitHub API
+
+        </h2>
+
+        <p>
+
+            Collects repository and commit history
+            from public GitHub profiles.
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            Feature Engineering
+
+        </h2>
+
+        <p>
+
+            Extracts commit hour, weekend activity,
+            night activity and sentiment.
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            Machine Learning
+
+        </h2>
+
+        <p>
+
+            Detects unusual work patterns using
+            Isolation Forest.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

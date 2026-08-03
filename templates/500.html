@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+Server Error
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>
+
+        500
+
+    </h1>
+
+    <br>
+
+    <h2>
+
+        Internal Server Error
+
+    </h2>
+
+    <br>
+
+    <p class="subtitle">
+
+        Something went wrong while processing your request.
+
+    </p>
+
+    <br>
+
+    <a href="{{ url_for('home') }}">
+
+        <button class="analyze-btn">
+
+            Try Again
+
+        </button>
+
+    </a>
+
+</div>
+
+{% endblock %}
