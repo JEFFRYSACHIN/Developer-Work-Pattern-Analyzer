@@ -24,7 +24,8 @@ def get_user(username):
 
     response = requests.get(
         url,
-        headers=HEADERS
+        headers=HEADERS,
+        timeout=15
     )
 
     if response.status_code != 200:
@@ -47,7 +48,8 @@ def get_repositories(username):
 
     response = requests.get(
         url,
-        headers=HEADERS
+        headers=HEADERS,
+        timeout=15
     )
 
     if response.status_code != 200:
@@ -72,7 +74,8 @@ def get_commits(username, repo_name):
 
     response = requests.get(
         url,
-        headers=HEADERS
+        headers=HEADERS,
+        timeout=15
     )
 
     if response.status_code == 409:
