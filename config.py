@@ -10,4 +10,6 @@ MAX_COMMITS = 200
 # Optional:
 # Add your GitHub Personal Access Token here later
 # to increase API rate limits.
-GITHUB_TOKEN = ""
+import os
+
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
